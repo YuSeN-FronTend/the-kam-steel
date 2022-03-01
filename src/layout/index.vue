@@ -32,8 +32,10 @@
                     <i class="el-icon-location"></i>
                     <span>数据中心</span>
                   </template>
-                  <el-menu-item index="1-1">扬尘数据</el-menu-item>
-                  <el-menu-item index="1-2">报表导出</el-menu-item>
+                  <el-menu-item index="1-1" @click="data"
+                    >扬尘数据</el-menu-item
+                  >
+                  <el-menu-item index="1-2" @click="tz">报表导出</el-menu-item>
                   <el-menu-item index="1-3">扬尘对比</el-menu-item>
                   <el-menu-item index="1-4">车辆管控</el-menu-item>
                 </el-submenu>
@@ -69,7 +71,7 @@
             </el-col>
           </el-row>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main><router-view></router-view></el-main>
       </el-container>
     </el-container>
   </div>
@@ -90,6 +92,12 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    tz() {
+      this.$router.push("/pz");
+    },
+    data() {
+      this.$router.push("/");
     },
   },
 };
