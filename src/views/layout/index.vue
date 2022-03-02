@@ -15,9 +15,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside width="200px">
-          <el-row class="tac">
-            <el-col>
+        <el-aside width="201px">
               <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
@@ -26,24 +24,27 @@
                 background-color="#222d32"
                 text-color="#b6b6b6a6"
                 active-text-color="#ffd04b"
+                router
               >
-                <el-submenu index="1">
+                <el-submenu router index="/Data">
                   <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>数据中心</span>
                   </template>
-                  <el-menu-item index="1-1">扬尘数据</el-menu-item>
+                  <el-menu-item-group router>
+                  <el-menu-item index="/Data">扬尘数据</el-menu-item>
                   <el-menu-item index="1-2">报表导出</el-menu-item>
                   <el-menu-item index="1-3">扬尘对比</el-menu-item>
                   <el-menu-item index="1-4">车辆管控</el-menu-item>
+                  </el-menu-item-group>
                 </el-submenu>
-                <el-submenu index="2">
+                <el-submenu >
                   <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>配置中心</span>
                   </template>
-                  <el-menu-item-group>
-                    <el-menu-item index="2-1">设备管理</el-menu-item>
+                  <el-menu-item-group router>
+                    <el-menu-item index="/EquinManage">设备管理</el-menu-item>
                     <el-menu-item index="2-2">设备类型</el-menu-item>
                     <el-menu-item index="2-3">拓扑结构</el-menu-item>
                     <el-menu-item index="2-4">设备分组</el-menu-item>
@@ -66,10 +67,8 @@
                   </template>
                 </el-submenu>
               </el-menu>
-            </el-col>
-          </el-row>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main><router-view></router-view></el-main>
       </el-container>
     </el-container>
   </div>
@@ -105,17 +104,17 @@ export default {
 }
 
 .el-aside {
-  background-color: #222d32;
-  color: #333;
-  text-align: center;
-  height: 704px;
+  border-right: 0px;
 }
-
+.el-menu{
+  border-right: 0px;
+  height: 100%;
+}
 .el-main {
-  background-color: #e9eef3;
+  /* background-color: #e9eef3; */
   color: #333;
   text-align: center;
-  line-height: 160px;
+  height: 900px;
 }
 body > .el-container {
   margin-bottom: 40px;
