@@ -2,16 +2,35 @@
   <div class="container">
     <el-container>
       <el-header style="height: 56px">
-        <img
-          class="img"
-          src="http://62.234.98.16/group1/M00/00/00/rBUABF-s8luAZcTwAADCr-jOulM575.png"
-        />
         <div class="bread">
+          <img
+            class="img"
+            src="http://62.234.98.16/group1/M00/00/00/rBUABF-s8luAZcTwAADCr-jOulM575.png"
+          />
           <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item><a href="/">个人中心</a></el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/layout' }"
+              >首页</el-breadcrumb-item
+            >
+            <el-breadcrumb-item
+              ><a href="/layout">个人中心</a></el-breadcrumb-item
+            >
             <el-breadcrumb-item>个人中心</el-breadcrumb-item>
           </el-breadcrumb>
+        </div>
+        <div class="tx">
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link"
+              ><img
+                class="img2"
+                src="http://81.68.73.55/group1/M00/00/01/rBEAC11Tm_yAVEyBAAAnZs1UX6E726.jpg"
+              />
+            </span>
+            <!-- <span id="icon"><i class="el-icon-caret-bottom"></i></span> -->
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <div @click="quit"><el-dropdown-item>登出</el-dropdown-item></div>
+            </el-dropdown-menu>
+          </el-dropdown>
         </div>
       </el-header>
       <el-container>
@@ -97,6 +116,9 @@ export default {
       this.$router.push("/pz");
     },
     data() {
+      this.$router.push("/layout");
+    },
+    quit() {
       this.$router.push("/");
     },
   },
@@ -109,7 +131,8 @@ export default {
   padding: 0;
   background-color: #222d32e6;
   color: #000000;
-  line-height: 56px;
+  justify-content: space-between;
+  /* line-height: 56px; */
 }
 
 .el-aside {
@@ -122,8 +145,9 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
+  /* text-align: center; */
+  padding: 17px;
+  box-shadow: #222d32e6;
 }
 body > .el-container {
   margin-bottom: 40px;
@@ -151,5 +175,15 @@ body > .el-container {
 }
 .container >>> .el-breadcrumb__item:last-child .el-breadcrumb__inner {
   color: #ffffff;
+}
+.img2 {
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.tx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
