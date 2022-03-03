@@ -45,9 +45,9 @@
                 active-text-color="#ffd04b"
                 router
               >
-                <el-submenu router index="/Data">
+                <el-submenu router index="1">
                   <template slot="title">
-                    <i class="el-icon-location"></i>
+                    <i class="el-icon-s-data"></i>
                     <span>数据中心</span>
                   </template>
                   <el-menu-item-group router>
@@ -57,9 +57,9 @@
                   <el-menu-item index="1-4">车辆管控</el-menu-item>
                   </el-menu-item-group>
                 </el-submenu>
-                <el-submenu >
+                <el-submenu index="2">
                   <template slot="title">
-                    <i class="el-icon-location"></i>
+                    <i class="el-icon-setting"></i>
                     <span>配置中心</span>
                   </template>
                   <el-menu-item-group router>
@@ -81,7 +81,7 @@
                 </el-submenu>
                 <el-submenu index="4">
                   <template slot="title">
-                    <i class="el-icon-location"></i>
+                    <i class="el-icon-user"></i>
                     <span>个人中心</span>
                   </template>
                 </el-submenu>

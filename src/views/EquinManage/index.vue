@@ -16,7 +16,7 @@
     </div>
     <div class="main">
       <template>
-        <el-tabs  class="head" v-model="activeName" @tab-click="handleClick">
+        <el-tabs  class="head" v-model="activeName" >
           <el-tab-pane label="全部" name="first"></el-tab-pane>
           <el-tab-pane label="国际" name="second"></el-tab-pane>
           <el-tab-pane label="微站" name="third"></el-tab-pane>
@@ -64,6 +64,8 @@
 export default {
   data(){
     return {
+      input:"",
+      activeName:"",
       tableData: [{
           num:'1',
           ID:'14012101MJ8015',
