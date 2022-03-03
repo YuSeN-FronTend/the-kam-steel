@@ -50,16 +50,9 @@
                     <i class="el-icon-location"></i>
                     <span>数据中心</span>
                   </template>
-<<<<<<< HEAD:src/layout/index.vue
-                  <el-menu-item index="1-1" @click="data"
-                    >扬尘数据</el-menu-item
-                  >
-                  <el-menu-item index="1-2" @click="tz">报表导出</el-menu-item>
-=======
                   <el-menu-item-group router>
-                  <el-menu-item index="/Data">扬尘数据</el-menu-item>
+                  <el-menu-item index="/layout">扬尘数据</el-menu-item>
                   <el-menu-item index="1-2">报表导出</el-menu-item>
->>>>>>> d24b65eb7c21776f76b4ddd8e69599cd4170d706:src/views/layout/index.vue
                   <el-menu-item index="1-3">扬尘对比</el-menu-item>
                   <el-menu-item index="1-4">车辆管控</el-menu-item>
                   </el-menu-item-group>
@@ -149,14 +142,9 @@ export default {
 .el-main {
   /* background-color: #e9eef3; */
   color: #333;
-<<<<<<< HEAD:src/layout/index.vue
   /* text-align: center; */
   padding: 17px;
   box-shadow: #222d32e6;
-=======
-  text-align: center;
-  height: 900px;
->>>>>>> d24b65eb7c21776f76b4ddd8e69599cd4170d706:src/views/layout/index.vue
 }
 body > .el-container {
   margin-bottom: 40px;
