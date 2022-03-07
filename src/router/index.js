@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
 import layout from "../layout/index";
 import home from "../views/home/index";
 import pz from "../views/pz/index";
 import login from "../views/login";
-import EquinManage from "../views/EquinManage/index"
-
+import EquinManage from "../views/ConfigServer/EquinManage/index"
+import create from "../views/ConfigServer/EquinManage/create"
+import EquinType from "../views/ConfigServer/EquinType/index"
 
 Vue.use(VueRouter);
 
@@ -17,6 +17,7 @@ const routes = [
     component:login,
 
   },
+
   {
     path: "/layout",
     name: "layout",
@@ -38,6 +39,17 @@ const routes = [
         name: "EquinManage",
         component: EquinManage,
       },
+      {
+        path: "/create",
+        name: "create",
+        component: create,
+      },
+      {
+        path: "/EquinType",
+        name: "EquinType",
+        component: EquinType,
+      },
+
  
     ],
   },

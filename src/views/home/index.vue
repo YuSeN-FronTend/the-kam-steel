@@ -7,19 +7,19 @@
       <el-tab-pane label="TSP" name="fourth"></el-tab-pane>
     </el-tabs>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="a" label="设备名称"> </el-table-column>
+      <el-table-column prop="" label="设备名称"> </el-table-column>
       <el-table-column prop="b" label="历史数据"> </el-table-column>
       <el-table-column prop="c" label="在线状态"> </el-table-column>
       <el-table-column prop="d" label="所在位置"> </el-table-column>
       <el-table-column label="数据详情">
-        <el-table-column prop="e" label="PM2_5"></el-table-column>
-        <el-table-column prop="f" label="PM10"></el-table-column>
-        <el-table-column prop="g" label="TSP"></el-table-column>
-        <el-table-column prop="h" label="温度"></el-table-column>
-        <el-table-column prop="i" label="湿度"></el-table-column>
-        <el-table-column prop="j" label="风速"></el-table-column>
-        <el-table-column prop="k" label="风向"></el-table-column>
-        <el-table-column prop="l" label="气压"></el-table-column>
+        <el-table-column prop="pm2_5" label="PM2_5"></el-table-column>
+        <el-table-column prop="pm10" label="PM10"></el-table-column>
+        <el-table-column prop="tsp" label="TSP"></el-table-column>
+        <el-table-column prop="airdirection" label="温度"></el-table-column>
+        <el-table-column prop="airpress" label="湿度"></el-table-column>
+        <el-table-column prop="airspeed" label="风速"></el-table-column>
+        <el-table-column prop="humidness" label="风向"></el-table-column>
+        <el-table-column prop="airpress" label="气压"></el-table-column>
       </el-table-column>
     </el-table>
     <div class="block">
@@ -46,18 +46,15 @@ export default {
     return {
       tableData: [
         {
-          a: "",
-          b: "",
-          c: "",
-          d: "",
-          e: "",
-          f: "",
-          g: "",
-          h: "",
-          i: "",
-          j: "",
-          k: "",
-          l: "",
+          airdirection: "",
+          airpress: "",
+          airspeed: "",
+          humidness: "",
+          pm2_5: "",
+          pm10: "",
+          temperature: "",
+          tsp: "",
+
         },
       ],
       activeName: "first",
@@ -80,22 +77,31 @@ export default {
       console.log(`当前页: ${val}`);
     },
     handleClick(tag) {
-      if (tag.index === "0") {
-        this.$axios.get("/user/home").then((res) => {
-          this.tableData = res.data.data;
-          // console.log(res.data.data);
-        });
-      } else if (tag.index === "1") {
-        this.$axios.get("/user/firstname").then((res) => {
-          this.tableData = res.data.data;
-          // console.log(res.data.data);
-        });
-      }
+      console.log(tag);
+      // if (tag.index === "0") {
+      //   this.$axios.get("/user/home").then((res) => {
+      //     this.tableData = res.data.data;
+      //     // console.log(res.data.data);
+      //   });
+      // } else if (tag.index === "1") {
+      //   this.$axios.get("/user/firstname").then((res) => {
+      //     this.tableData = res.data.data;
+      //     // console.log(res.data.data);
+      //   });
+      // }
     },
     showData() {
-      this.$axios.get("/user/home").then((res) => {
+      this.$axios.get("http://106.55.171.176:7002/newRealData").then((res) => {
         this.tableData = res.data.data;
         console.log(res.data.data);
+        
+    //     // let a = [];
+    //     // for( var i=0;i<28;i++){
+    //     //   a.push(res.data.data[i].data)
+    //     // }
+    //     // console.log(a[0][0].value)
+    //     // console.log(a);
+        
       });
     },
   },
@@ -117,10 +123,14 @@ export default {
   -webkit-box-shadow: -1px 1px 4px #888;
   box-shadow: -1px 1px 4px #888;
   border-radius: 2px;
+  height: 100vh;
 }
 .block {
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+}
+.el-main {
+  height: 100vh;
 }
 </style>
