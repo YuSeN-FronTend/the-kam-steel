@@ -34,144 +34,59 @@
     </el-header>
     <el-container>
       <el-aside width="201px" height="100%">
-            <el-menu
-              default-active="2"
-              class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose"
-              background-color="#222d32"
-              text-color="#b6b6b6a6"
-              active-text-color="#ffd04b"
-              router
-            >
-<<<<<<< HEAD
-            <el-breadcrumb-item
-              ><a href="/layout">个人中心</a></el-breadcrumb-item
-            >
-            <el-breadcrumb-item>个人中心</el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
-        <div class="tx">
-          <el-dropdown trigger="click">
-            <span class="el-dropdown-link"
-              ><img
-                class="img2"
-                src="http://81.68.73.55/group1/M00/00/01/rBEAC11Tm_yAVEyBAAAnZs1UX6E726.jpg"
-              />
-            </span>
-            <!-- <span id="icon"><i class="el-icon-caret-bottom"></i></span> -->
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>个人中心</el-dropdown-item>
-              <div @click="quit"><el-dropdown-item>登出</el-dropdown-item></div>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
-      </el-header>
-      <el-container>
-        <el-aside width="201px">
-          <el-menu
-            default-active="2"
-            class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose"
-            background-color="#222d32"
-            text-color="#b6b6b6a6"
-            active-text-color="#ffd04b"
-            router
-          >
-            <el-submenu router index="1">
-              <template slot="title">
-                <i class="el-icon-s-data"></i>
-                <span>数据中心</span>
-              </template>
-              <el-menu-item-group router>
-                <el-menu-item index="/layout">扬尘数据</el-menu-item>
-                <el-menu-item index="/derive">报表导出</el-menu-item>
-                <el-menu-item index="/compare">扬尘对比</el-menu-item>
-                <el-menu-item index="/control">车辆管控</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="2">
-              <template slot="title">
-                <i class="el-icon-setting"></i>
-                <span>配置中心</span>
-              </template>
-              <el-menu-item-group router>
-                <el-menu-item index="/EquinManage">设备管理</el-menu-item>
-                <el-menu-item index="2-2">设备类型</el-menu-item>
-                <el-menu-item index="2-3">拓扑结构</el-menu-item>
-                <el-menu-item index="2-4">设备分组</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="3">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>权限中心</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="3-1">角色管理</el-menu-item>
-                <el-menu-item index="3-2">人员管理</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-user"></i>
-                <span>个人中心</span>
-              </template>
-            </el-submenu>
-          </el-menu>
-        </el-aside>
-        <el-main><router-view></router-view></el-main>
-      </el-container>
-=======
-              <el-submenu router index="1">
-                <template slot="title">
-                  <i class="el-icon-s-data"></i>
-                  <span>数据中心</span>
-                </template>
-                <el-menu-item-group router>
-                <el-menu-item index="/layout">扬尘数据</el-menu-item>
-                <el-menu-item index="1-2">报表导出</el-menu-item>
-                <el-menu-item index="1-3">扬尘对比</el-menu-item>
-                <el-menu-item index="1-4">车辆管控</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="2">
-                <template slot="title">
-                  <i class="el-icon-setting"></i>
-                  <span>配置中心</span>
-                </template>
-                <el-menu-item-group router>
-                  <el-menu-item index="/EquinManage">设备管理</el-menu-item>
-                  <el-menu-item index="/EquinType">设备类型</el-menu-item>
-                  <el-menu-item index="2-3">拓扑结构</el-menu-item>
-                  <el-menu-item index="2-4">设备分组</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="3">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>权限中心</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="3-1">角色管理</el-menu-item>
-                  <el-menu-item index="3-2">人员管理</el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-              <el-submenu index="4">
-                <template slot="title">
-                  <i class="el-icon-user"></i>
-                  <span>个人中心</span>
-                </template>
-              </el-submenu>
-            </el-menu>
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose"
+          background-color="#222d32"
+          text-color="#b6b6b6a6"
+          active-text-color="#ffd04b"
+          router
+        >
+          <el-submenu router index="1">
+            <template slot="title">
+              <i class="el-icon-s-data"></i>
+              <span>数据中心</span>
+            </template>
+            <el-menu-item-group router>
+              <el-menu-item index="/layout">扬尘数据</el-menu-item>
+              <el-menu-item index="/derive">报表导出</el-menu-item>
+              <el-menu-item index="/compare">扬尘对比</el-menu-item>
+              <el-menu-item index="/control">车辆管控</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-setting"></i>
+              <span>配置中心</span>
+            </template>
+            <el-menu-item-group router>
+              <el-menu-item index="/EquinManage">设备管理</el-menu-item>
+              <el-menu-item index="/EquinType">设备类型</el-menu-item>
+              <el-menu-item index="2-3">拓扑结构</el-menu-item>
+              <el-menu-item index="2-4">设备分组</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>权限中心</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="3-1">角色管理</el-menu-item>
+              <el-menu-item index="3-2">人员管理</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-user"></i>
+              <span>个人中心</span>
+            </template>
+          </el-submenu>
+        </el-menu>
       </el-aside>
-      <el-main>
-         <transition name="fade">
-         <router-view></router-view>
-         </transition>
-      </el-main>
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e
+      <el-main><router-view></router-view></el-main>
     </el-container>
   </el-container>
 </template>
@@ -206,7 +121,7 @@ export default {
 </script>
 
 <style scoped>
-.el-container{
+.el-container {
   height: 100vh;
 }
 .el-header {
@@ -220,12 +135,8 @@ export default {
 
 .el-aside {
   border-right: 0px;
-<<<<<<< HEAD
   margin-right: 10px;
   /* height: 100vh; */
-=======
-  height: 100%;
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e
 }
 .el-menu {
   border-right: 0px;
@@ -260,11 +171,11 @@ body > .el-container {
   align-items: center;
   color: white;
 }
-.el-breadcrumb >>> .el-breadcrumb__inner{
+.el-breadcrumb >>> .el-breadcrumb__inner {
   color: #fff !important;
   font-weight: 400;
 }
-.el-breadcrumb >>> .el-breadcrumb__inner a{
+.el-breadcrumb >>> .el-breadcrumb__inner a {
   color: #fff;
   font-weight: 400;
 }
@@ -282,24 +193,24 @@ body > .el-container {
 /* .fade-enter-from{
   opacity: 0;
 } */
-.fade-enter-active{
-/* animation: guodu 1s; */
-   /* transform: translate3d(100%, 0, 0); */
-   transition: all 0.5s ease;
+.fade-enter-active {
+  /* animation: guodu 1s; */
+  /* transform: translate3d(100%, 0, 0); */
+  transition: all 0.5s ease;
 }
-.fade-enter-to{
+.fade-enter-to {
   transform: translateX(30px);
   opacity: 0;
 }
 /* .fade-leave-from{
   opacity: 0;
 } */
-.fade-leave-active{
-/* animation: guodu 1s;
+.fade-leave-active {
+  /* animation: guodu 1s;
    transform: translate3d(-100%, 0, 0); */
-      transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-.fade-leave-to{
+.fade-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }

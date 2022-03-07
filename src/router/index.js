@@ -4,15 +4,14 @@ import layout from "../layout/index";
 import home from "../views/dataCenter/home";
 import compare from "../views/dataCenter/compare";
 import login from "../views/login";
-<<<<<<< HEAD
-import EquinManage from "../views/EquinManage/index";
+
 import derive from "../views/dataCenter/derive";
 import control from "../views/dataCenter/control"
-=======
-import EquinManage from "../views/ConfigServer/EquinManage/index"
+
+import EquinManage from "../views/ConfigServer/EquinManage/index.vue"
 import create from "../views/ConfigServer/EquinManage/create"
 import EquinType from "../views/ConfigServer/EquinType/index"
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e
+
 
 Vue.use(VueRouter);
 
@@ -44,7 +43,7 @@ const routes = [
         component: EquinManage,
       },
       {
-<<<<<<< HEAD
+
         path: "/derive",
         name: "derive",
         component: derive,
@@ -53,8 +52,8 @@ const routes = [
         path: "/control",
         name: "control",
         component: control
-      }
-=======
+      },
+      {
         path: "/create",
         name: "create",
         component: create,
@@ -64,9 +63,6 @@ const routes = [
         name: "EquinType",
         component: EquinType,
       },
-
- 
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e
     ],
   },
 ];

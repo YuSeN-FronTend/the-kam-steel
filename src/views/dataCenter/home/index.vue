@@ -1,12 +1,12 @@
 <template>
-  <div class="container" v-loading="loading">
+  <div class="container">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="全部数据" name="first"></el-tab-pane>
       <el-tab-pane label="国标" name="second"></el-tab-pane>
       <el-tab-pane label="微站" name="third"></el-tab-pane>
       <el-tab-pane label="TSP" name="fourth"></el-tab-pane>
     </el-tabs>
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData" style="width: 100%" v-loading="loading">
       <el-table-column prop="a" label="设备名称"> </el-table-column>
       <el-table-column prop="b" label="历史数据"> </el-table-column>
       <el-table-column prop="c" label="在线状态"> </el-table-column>
@@ -60,12 +60,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage4"
-        :page-sizes="[
-          dataNumber.ten,
-          dataNumber.twenty,
-          dataNumber.fifty,
-          dataNumber.hundred,
-        ]"
+        :page-sizes="[10, 20, 30, 40]"
         :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="number"
@@ -80,6 +75,8 @@ export default {
   components: {},
   data() {
     return {
+      currPage: 1,
+      pageSize: 10,
       tableData: [],
       activeName: "first",
       // currentPage1: 5,
@@ -99,130 +96,52 @@ export default {
   computed: {},
   created() {},
   mounted() {
-    // this.showData();
-    // this.paging();
     this.paging1();
-    // this.handleSizeChange();
-    // this.handleCurrentChange();
-    this.one();
   },
   methods: {
     handleClick(tag) {
       console.log(tag);
-      // if (tag.index === "0") {
-      // this.$axios.get("/user/home").then((res) => {
-      //   this.tableData = res.data.data;
-      //   // console.log(res.data.data);
-      // });
-      // } else if (tag.index === "1") {
-      //   this.$axios.get("/user/firstname").then((res) => {
-      //     this.tableData = res.data.data;
-      //     // console.log(res.data.data);
-      //   });
-      // }
     },
-    // paging() {
-    //   this.$axios
-    //     .get("http://106.55.171.176:7001/realDataPage?pageSize=100")
-    //     .then((res) => {
-    //       this.tableData = res.data.data;
-    //       this.number = res.data.data.length;
-    //     });
-    // },
     paging1() {
       this.$axios
         .get("http://106.55.171.176:7001/realDataPage?pageSize=10&currPage=1")
         .then((res) => {
           this.tableData = res.data.data;
+          this.loading = false;
           // this.number = res.data.data.length;
           console.log(this.number);
         });
     },
     handleSizeChange(val) {
-      // console.log(`每页 ${val} 条`);
-      console.log(this.handleSizeChange);
+      this.pageSize = val;
+      this.loading = true;
       this.$axios
         .get("http://106.55.171.176:7001/realDataPage", {
           params: {
-            pageSize: `${val}`,
+            currPage: this.currPage,
+            pageSize: this.pageSize,
           },
         })
         .then((res) => {
           this.tableData = res.data.data;
-          // this.number = res.data.data.length;
+          this.loading = false;
         });
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.currPage = val;
+      this.loading = true;
       this.$axios
         .get("http://106.55.171.176:7001/realDataPage?", {
           params: {
-            pageSize: 10,
-            currPage: `${val}`,
+            currPage: this.currPage,
+            pageSize: this.pageSize,
           },
         })
         .then((res) => {
           this.tableData = res.data.data;
-          // this.number = res.data.data.length;
+          this.loading = false;
         });
     },
-    // showData() {
-    //   this.$axios.get("http://106.55.171.176:7002/newRealData").then((res) => {
-    //     let data = res.data.data.splice(0, 10);
-    //     data.map((item) => {
-    //       item.pm2_5 += " ug/m3";
-    //       item.pm10 += " ug/m3";
-    //       item.tsp += " ug/m3";
-    //       item.temperature += " ℃";
-    //       item.airpress += " Pa";
-    //       item.airdirection = "于森";
-    //       item.airspeed += " m/s";
-    //       item.humidness += " ug/m3";
-    //     });
-    //     this.tableData = data;
-    //   });
-    // },
-    // paging() {
-    //   this.$axios
-    //     .get("http://106.55.171.176:7001/realDataPage?", {
-    //       params: {
-    //         pageSize: this.dataNumber.ten,
-    //         currPage: this.total,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       this.tableData = res.data.data;
-    //       this.number = res.data.data.length;
-    //       console.log(res.pageSize);
-    // if (this.dataNumber.ten) {
-    //   this.pageSize = this.dataNumber.ten;
-    // } else if (this.dataNumber.twenty === true) {
-    //   console.log("111");
-    //   this.pageSize = this.dataNumber.twenty;
-    // } else if (this.dataNumber.fifty) {
-    //   this.pageSize = this.dataNumber.fifty;
-    // } else {
-    //   this.pageSize = this.dataNumber.hundred;
-    // }
-    // console.log(res.data.data);
-    //     });
-    // },
-    one() {
-      this.loading = setTimeout(() => {
-        this.loading = false;
-      }, 500);
-    },
-    // paging1() {
-    //   this.$axios
-    //     .get("http://106.55.171.176:7001/realDataPage?", {
-    //       params: {
-    //         pageSize: this.dataNumber.twenty,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       this.tableData = res.data.data;
-    //     });
-    // },
   },
 };
 </script>

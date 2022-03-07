@@ -9,7 +9,6 @@
             v-for="item in options"
             :key="item.value"
             :label="item.label"
-<<<<<<< HEAD:src/views/EquinManage/index.vue
             :value="item.value"
           >
           </el-option> </el-select
@@ -42,67 +41,12 @@
         </el-table>
       </template>
     </div>
-=======
-            :value="item.value">
-            
-           </el-option>
-          </el-select></span>
-          <el-button type="primary" @click="toCreate()" icon="el-icon-search">创建</el-button>
-    </div>
-    <div class="main">
-      <template class="table">
-        <el-tabs  class="head" v-model="activeName" >
-          <el-tab-pane  label="全部" name="first"></el-tab-pane>
-          <el-tab-pane label="美锦钢铁" name="second"></el-tab-pane>
-          <el-tab-pane label="国际" name="third"></el-tab-pane>
-          <el-tab-pane label="微站" name="fourth"></el-tab-pane>
-          <el-tab-pane label="TPS" name="fifth"></el-tab-pane>
-        </el-tabs>
-       <el-table
-       class="table"
-       :data="tableData"
-        height="100vh"
-        border
-        style="width: 97%">
-       <el-table-column
-       type="index"
-       prop="num"
-       label="序号"
-       width="180"
-       >
-        </el-table-column>
-       <el-table-column
-       prop="moteid"
-       label="设备编号ID"
-       width="180">
-       </el-table-column>
-       <el-table-column
-       prop="name"
-       label="设备名称">
-       </el-table-column>
-       <el-table-column
-       prop="location"
-       label="安装位置">
-       </el-table-column>
-       <el-table-column
-       prop="type"
-       label="设备类型">
-       </el-table-column>
-       <el-table-column
-       prop="status"
-       label="设备状态">
-       </el-table-column>
-     </el-table>
-     </template>
-     </div>
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e:src/views/ConfigServer/EquinManage/index.vue
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-<<<<<<< HEAD:src/views/EquinManage/index.vue
       input: "",
       activeName: "",
       tableData: [
@@ -138,68 +82,36 @@ export default {
         },
       ],
       value: "",
-=======
-      input:"",
-      activeName:"",
-      tableData: [{
-          location:'',
-          moteid:'',
-          name: '',
-          status:'',
-          type:'',
-        },],
-      options: [{
-          value: '选项1',
-          label: '全部'
-        },    {
-          value: '选项2',
-          label: '扬尘监测'
-        }],
-        value: ''
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e:src/views/ConfigServer/EquinManage/index.vue
     };
   },
   computed: {},
   watch: {},
   methods: {
-      toCreate(){
-        this.$router.push("/create")
-      },
-      ShowAll(){
-        this.$axios.get('http://106.55.171.176:7002/getDeviceData').then((res)=>{
+    toCreate() {
+      this.$router.push("/create");
+    },
+    ShowAll() {
+      this.$axios
+        .get("http://106.55.171.176:7002/getDeviceData")
+        .then((res) => {
           console.log(res.data.data);
-          this.tableData = res.data.data
-          
-        })
-      }
-      
+          this.tableData = res.data.data;
+        });
+    },
   },
   created() {},
   mounted() {
-        this.ShowAll()
+    this.ShowAll();
   },
   destroyed() {},
   activated() {},
 };
 </script>
 <style scoped>
-<<<<<<< HEAD:src/views/EquinManage/index.vue
 .header {
   box-shadow: rgb(136 136 136) -1px 1px 5px;
   height: 80px;
   display: flex;
-=======
-.header{
-    box-shadow: rgb(136 136 136) -1px 1px 5px;
-    height: 80px;
-    display: flex;
-}
-.main{
-    margin-top: 20px;
-    box-shadow: rgb(136 136 136) -1px 1px 5px;
-    height: 500px;
-    padding-top: 15px;
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e:src/views/ConfigServer/EquinManage/index.vue
 }
 .main {
   margin-top: 20px;
@@ -224,18 +136,10 @@ export default {
 .el-button el-button--default {
   background-color: transparent;
 }
-<<<<<<< HEAD:src/views/EquinManage/index.vue
 .el-button {
   height: 45px;
   margin: 15px;
   margin-left: 0;
-=======
-.el-table{
-    margin: 15px;
-   font-size: 15px;
-      color: #606266;
-      height: 400px !important;
->>>>>>> 0a0dab6521efd28409ef8c155e3035da453f806e:src/views/ConfigServer/EquinManage/index.vue
 }
 .el-table {
   margin: 15px;
@@ -260,7 +164,7 @@ export default {
   width: 97%;
   padding-left: 15px;
 }
->>> .el-table thead {
+.container >>> .el-table thead {
   color: #000;
   text-align: center;
 }
